@@ -1,9 +1,9 @@
 {
   "name": "@rckeller/cypress-unfetch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "entry": "index.js",
   "homepage": "https://www.npmjs.com/package/@rckeller/cypress-react",
-  "description": "Unofficial Cypress utilities for testing React applications",
+  "description": "Unofficial Cypress utilities for tracking network state",
   "keywords": [
     "Cypress",
     "React",
