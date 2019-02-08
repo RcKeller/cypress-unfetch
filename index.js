@@ -1,5 +1,8 @@
-/// <reference path='./index.d.ts' />
 
+/*
+USAGE: in `support/index.(js|ts)`
+import '@rckller/cypress-unfetch'
+*/
 before(() => {
   cy.log('Polyfill Fetch >>> XHR Fallback')
   // Load the standalone polyfill w/ a closure, prevents race
