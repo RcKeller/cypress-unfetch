@@ -1,5 +1,10 @@
 /// <reference path='./await.d.ts' />
 
+/*
+USAGE: in `support/index.(js|ts)`
+import '@rckller/cypress-unfetch/await'
+*/
+
 /**
 *   Initialize cy.server & tracking for in-flight XHR
 **/
