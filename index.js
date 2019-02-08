@@ -4,7 +4,7 @@ USAGE: in `support/index.(js|ts)`
 import '@rckller/cypress-unfetch'
 */
 before(() => {
-  cy.log('Polyfill Fetch >>> XHR Fallback')
+  cy.log('Cypress-Unfetch: Polyfill Fetch >>> XHR Fallback')
   // Load the standalone polyfill w/ a closure, prevents race
   let unfetch
   cy.readFile('node_modules/unfetch/dist/unfetch.umd.js')

@@ -1,6 +1,6 @@
 declare namespace Cypress {
   interface Chainable {
-    awaitXHR: () => Chainable<any>
+    awaitXHR: (timeout?: number) => Chainable<any>
     _apiCount: number
   }
 }

@@ -3,7 +3,7 @@
 /**
 *   Initialize cy.server & tracking for in-flight XHR
 **/
-module.exports.trackXHR = (() => { // May need to reference `this` in the future
+beforeEach(() => { // May need to reference `this` in the future
   cy._apiCount = 0
   const onRequest = () => { cy._apiCount++ }
   // Allocate a delay in case any API calls chain off each other
@@ -15,7 +15,7 @@ module.exports.trackXHR = (() => { // May need to reference `this` in the future
   }
   const onAbort = () => { cy._apiCount-- }
   cy
-    .log('Initializing Server')
+    .log('Cypress-Unfetch: Tracking XHR')
     .server({ onRequest, onResponse, onAbort })
 })
 
@@ -23,9 +23,10 @@ module.exports.trackXHR = (() => { // May need to reference `this` in the future
 /**
 *   Synchronously wait forin-flight XHR to resolve
 *   @function   cy.await
+*   @param      {number}  []  Default Timeout
 **/
-module.exports.registerAwait = () => Cypress.Commands.add('await', () => {
+Cypress.Commands.add('await', (timeout) => {
   // Use any cy.get() cb so cypress timeouts are applied to should() expressions
-  cy.window({ log: false })
+  cy.window({ log: false, timeout })
     .should(() => expect(cy._apiCount || 0, 'In-Flight XHR').to.equal(0))
 })

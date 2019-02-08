@@ -8,13 +8,37 @@ npm i -D @rckeller/cypress-unfetch
 
 ## Configuration
 
+These utilities automatically configure your cypress instance upon import.
+
 ```js
-// In `support/index.js`, to configure XHR/Fetch tracking
+// support/index.js
 import '@rckeller/cypress-unfetch'
-// Optional: in `support/commands.js`, to register cy.await()
+```
+
+We recommmend setting up the optional `cy.await` command, which tracks in-flight requests in the background.
+You can use this to wait for network state to resolve before progressing to a new test run.
+
+```js
+// support/index.js
 import '@rckeller/cypress-unfetch/await'
-// ... which can be invoked manually, or automatically for all tests
+
+// You can add an afterEach to this file, which becomes "global"
 afterEach(() => {
   cy.await()
+})
+```
+
+Registering `cy.await` starts a server in the background, which can be used to track and block specific routes like so.
+
+```js
+// in support/index.js OR a test
+beforeEach(() => {
+  cy.route('/api/**').as('API')
+})
+
+test('something', () => {
+  cy.log('before...')
+    .wait('@API')
+    .log('...after')
 })
 ```
