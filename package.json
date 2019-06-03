@@ -1,21 +1,32 @@
 {
   "name": "@rckeller/cypress-unfetch",
-  "version": "0.0.3",
-  "entry": "index.js",
+  "version": "1.0.0",
+  "author": "Ryan Keller",
   "homepage": "https://www.npmjs.com/package/@rckeller/cypress-react",
   "description": "Unofficial Cypress utilities for tracking network state",
+  "license": "MIT",
   "keywords": [
     "Cypress",
     "React",
     "Testing",
     "Utils"
   ],
-  "author": "Ryan Keller",
-  "license": "MIT",
+  "entry": "index.js",
+  "files": [
+    "index.js",
+    "await.js",
+    "await.d.ts"
+  ],
+  "scripts": {
+    "test": "cypress run",
+    "test:open": "cypress open",
+    "validate": "circleci config validate"
+  },
   "dependencies": {
     "unfetch": "^4.0.1"
   },
   "devDependencies": {
+    "cypress": "^3.3.1",
     "eslint": "^5.13.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-cypress": "^2.2.0",
