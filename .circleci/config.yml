@@ -17,13 +17,16 @@ jobs:
       - run: 
           name: Dependencies
           command: npm install
-      - run:
-          name: Cypress Tests
-          command: npm test
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
+      - run:
+          name: Cypress Tests
+          command: npm run test
+      - store_artifacts:
+          path: ~/repo/cypress/screenshots
+          when: on_fail
       - persist_to_workspace:
           root: ~/repo
           paths: .
