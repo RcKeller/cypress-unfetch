@@ -1,4 +1,4 @@
 // import '@rckeller/cypress-unfetch
-import '../../index';
+import '../../index'
 // import '@rckeller/cypress-unfetch/await'
-import '../../await';
+import '../../await'
