@@ -1,6 +1,6 @@
 {
   "name": "@rckeller/cypress-unfetch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Ryan Keller",
   "homepage": "https://www.npmjs.com/package/@rckeller/cypress-react",
   "description": "Unofficial Cypress utilities for tracking network state",
