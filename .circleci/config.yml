@@ -3,7 +3,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:10
+    - image: cypress/base:10
 
 jobs:
   test:
@@ -16,16 +16,15 @@ jobs:
           - v1-dependencies-
       - run: 
           name: Dependencies
-          command: npm install
+          command: npm ci
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
-            - node_modules
             - ~/.npm
             - ~/.cache
       - run:
           name: Cypress Tests
-          command: npm run test
+          command: $(npm bin)/cypress run
       - store_artifacts:
           path: ~/repo/cypress/screenshots
           when: on_fail
