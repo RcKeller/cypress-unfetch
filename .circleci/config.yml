@@ -21,6 +21,8 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
+            - ~/.npm
+            - ~/.cache
       - run:
           name: Cypress Tests
           command: npm run test
