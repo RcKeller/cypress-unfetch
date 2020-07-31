@@ -1,5 +1,5 @@
 
-# @rckeller/cypress-react
+# @rckeller/cypress-unfetch
 Unofficial Cypress utilities for tracking network state
 
 ```
